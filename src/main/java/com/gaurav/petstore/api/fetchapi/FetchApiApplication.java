@@ -1,6 +1,6 @@
 package com.gaurav.petstore.api.fetchapi;
 
-import com.gaurav.petstore.api.fetchapi.services.PetStoreFetchApiService;
+import com.gaurav.petstore.api.fetchapi.services.PetStoreService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class FetchApiApplication implements CommandLineRunner {
     private static Logger logger = LoggerFactory.getLogger(FetchApiApplication.class);
 
     @Autowired
-    PetStoreFetchApiService petStoreFetchApiService;
+    PetStoreService petStoreService;
 
     public static void main(String[] args) {
         SpringApplication.run(FetchApiApplication.class, args);
@@ -39,7 +39,7 @@ public class FetchApiApplication implements CommandLineRunner {
                 throw new RuntimeException("Please provide both Pet Status Type and Pet Sort Order parameters for this console application to work");
             logger.info("Pet Status Type being used::{}", args[0]);
             logger.info("Pet Sort Order for each category of pet::{}", args[1]);
-            petStoreFetchApiService.fetchThePetsBasedOnTheProvidedStatusAndSortOrder(args[0], args[1]);
+            petStoreService.fetchThePetsBasedOnTheProvidedStatusAndSortOrder(args[0], args[1]);
         } catch (Exception exception) {
             logger.info("Error===>{}", exception.getMessage());
         }

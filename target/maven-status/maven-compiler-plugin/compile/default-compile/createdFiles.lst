@@ -1,6 +1,5 @@
 com/gaurav/petstore/api/fetchapi/dtos/Pet.class
 com/gaurav/petstore/api/fetchapi/FetchApiApplication.class
-com/gaurav/petstore/api/fetchapi/services/PetStoreFetchApiService.class
 com/gaurav/petstore/api/fetchapi/dtos/Tag.class
 com/gaurav/petstore/api/fetchapi/externalapis/ExternalApiImpl.class
 com/gaurav/petstore/api/fetchapi/dtos/Category.class
