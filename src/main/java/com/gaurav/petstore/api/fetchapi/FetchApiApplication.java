@@ -32,14 +32,13 @@ public class FetchApiApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-
+    public void run(String... args) {
         try {
             if (args.length < 2)
                 throw new RuntimeException("Please provide both Pet Status Type and Pet Sort Order parameters for this console application to work");
             logger.info("Pet Status Type being used::{}", args[0]);
             logger.info("Pet Sort Order for each category of pet::{}", args[1]);
-            petStoreService.fetchThePetsBasedOnTheProvidedStatusAndSortOrder(args[0], args[1]);
+            petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder(args[0], args[1]);
         } catch (Exception exception) {
             logger.info("Error===>{}", exception.getMessage());
         }

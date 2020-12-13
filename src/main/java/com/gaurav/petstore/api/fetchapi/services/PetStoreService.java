@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class PetStoreService {
 
     @Autowired
-    ExternalApi externalApi;
+    private ExternalApi externalApi;
     private static Logger logger = LoggerFactory.getLogger(PetStoreService.class);
     private List<Pet> pets;
     private Map<Long, List<Pet>> groupedPets;
@@ -26,7 +26,7 @@ public class PetStoreService {
     public PetStoreService() {
     }
 
-    public void fetchThePetsBasedOnTheProvidedStatusAndSortOrder(String status, String order) {
+    public void fetchThePetsBasedOnTheirStatusAndSortOrder(String status, String order) {
         validateParameters(status, order);
         fetchThePets(status);
         groupThePetsBasedOnTheirCategory();
@@ -68,9 +68,9 @@ public class PetStoreService {
     }
 
     private void printTheGroupedPets() {
-        groupedPets.forEach((x, y) -> {
+        groupedPets.forEach((key, value) -> {
+            logger.info("{}::{}", key, value);
             logger.info("\n");
-            logger.info("{}::{}", x, y);
         });
     }
 

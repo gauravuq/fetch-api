@@ -1,6 +1,8 @@
 package com.gaurav.petstore.api.fetchapi.externalapis;
 
 import com.gaurav.petstore.api.fetchapi.dtos.Pet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.ParameterizedTypeReference;
@@ -14,6 +16,9 @@ import java.util.List;
 @Service
 @Scope(proxyMode = ScopedProxyMode.INTERFACES, value = "prototype")
 public class ExternalApiImpl implements ExternalApi {
+
+   private static Logger logger = LoggerFactory.getLogger(ExternalApiImpl.class);
+
     @Override
     public ResponseEntity<List<Pet>> getAllThePets(String status) {
         RestTemplate restTemplate = new RestTemplate();
