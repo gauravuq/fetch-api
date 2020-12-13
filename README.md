@@ -1,7 +1,7 @@
 # Fetch-PetStore-Api
 ### Aim of this api:
 * Develop a console application return a list of Pets from the Pet Store
-REST api:  https://petstore.swagger.io/
+source api:  https://petstore.swagger.io/
 ### Tech-Stack used :
 * JDK 13 : required on a machine as pre-Requisite
     * Type ```java --version``` to see if you have the jdk
@@ -9,7 +9,7 @@ REST api:  https://petstore.swagger.io/
 * Java 13
 
 ### Assumptions under which the console has been developed:
-1) Pets are segregated into Categories and each category can be sorted in Ascending or Descending order of Names
+1) Pets are segregated into Categories and each category can be sorted in Ascending or Descending order of Name of the pets
    * When the console api prints its result , it is of the format : ```[category id]::[{Pet1},{Pet2}]``` 
 2) Some pets don't have any categories associate with them in the pet store source api. They are programmatically assigned to a category with ID: ```-9223372036854775808```
 3) This api can fetch SOLD or PENDING or AVAILABLE Pets from the pet store source api.
