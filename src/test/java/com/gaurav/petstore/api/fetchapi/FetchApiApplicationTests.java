@@ -1,20 +1,18 @@
 package com.gaurav.petstore.api.fetchapi;
 
 import com.gaurav.petstore.api.fetchapi.services.PetStoreService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
+
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 @SpringBootTest(args = {"available","DESC"})
-@RunWith(SpringJUnit4ClassRunner.class)
 public class FetchApiApplicationTests {
 
     @Autowired
@@ -24,22 +22,27 @@ public class FetchApiApplicationTests {
     // Integration Test
     @Test
     public void e2eTest(){
-        logger.info("First Integration Test");
-        petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder("available","DESC");
+        logger.info("Integration Test");
+        assertEquals("Success",petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder("available","DESC"));
     }
 
     // Error Test 1
-    @Test(expected = RuntimeException.class)
+    @Test
     public void e2eTestPetStatusError(){
-        logger.info("Second Error Test: Expect Error to be thrown due to wrong Pet Status");
-        petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder("availabl","DESC");
+        logger.info("Error Test: Expect Error to be thrown due to wrong Pet Status");
+        assertThrows(RuntimeException.class,()->{
+            petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder("availabl","DES");
+        });
     }
 
     // Error Test 2
-    @Test(expected = RuntimeException.class)
+    @Test
     public void e2eTestPetSortOrderError(){
-        logger.info("Third Error Test: Expect Error to be thrown due to wrong Pet Sort Order");
-        petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder("available","DES");
+        logger.info("Error Test: Expect Error to be thrown due to wrong Pet Sort Order");
+        assertThrows(RuntimeException.class,()->{
+            petStoreService.fetchThePetsBasedOnTheirStatusAndSortOrder("available","DES");
+        });
+
     }
 
 }

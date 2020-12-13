@@ -26,12 +26,13 @@ public class PetStoreService {
     public PetStoreService() {
     }
 
-    public void fetchThePetsBasedOnTheirStatusAndSortOrder(String status, String order) {
+    public String fetchThePetsBasedOnTheirStatusAndSortOrder(String status, String order) {
         validateParameters(status, order);
         fetchThePets(status);
         groupThePetsBasedOnTheirCategory();
         sortThePetsInEachCategoryBasedOnTheGivenSortOrder(order);
         printTheGroupedPets();
+        return "Success";
     }
 
     private void validateParameters(String status, String order) {

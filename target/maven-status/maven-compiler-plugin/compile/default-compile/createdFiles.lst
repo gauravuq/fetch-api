@@ -5,3 +5,4 @@ com/gaurav/petstore/api/fetchapi/externalapis/ExternalApiImpl.class
 com/gaurav/petstore/api/fetchapi/dtos/Category.class
 com/gaurav/petstore/api/fetchapi/externalapis/ExternalApi.class
 com/gaurav/petstore/api/fetchapi/externalapis/ExternalApiImpl$1.class
+com/gaurav/petstore/api/fetchapi/services/PetStoreService.class
